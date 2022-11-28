@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Airsales-ai</title>
+        <!-- Favicon-->
+        <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> -->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        {%include 'navbar.html'%}
+        <!-- Header-->
+        <header >
+
+
+            <div class="container px-lg-1 mt-2">
+                <div class="p-1 p-lg-2 rounded-3 text-center">
+                    <div class="m-1 m-lg-5">
+                        <h1 class="display-5 fw-bold text-primary">Personalizing AI Email Writer</h1>
+                        <p class="fs-5 text-black font-weight-bold">100% getting more replies and more sales using it!</p>
+                        <!-- <a class="btn btn-info btn-lg" href="#!">Call to action</a> -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Page Content-->
+        <header >
+            <form name="form1" method="POST" action="/scrap"> 
+             <div class="container">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <div class="p-4 p-lg-5  rounded-3 text-center">
+                        
+                        <div class="mb-2"><u>Enter LinkedIn profile username:: linkedin.com/in/<b>stephenstromsoe</b>/</u> </div>
+                
+                            <div class="form-group">
+                              <input name="Linkusername"  class="form-control" id="exampleFormControlInput1" placeholder="stephenstromsoe" >
+                            </div>
+                            <!-- <div class="mb-3">
+                                <div class="mt-2 mb-2"> <u> OR choose CSV File </u></div>
+                                <input class="form-control" type="file" id="formFile">
+                              </div> -->
+                        </div>
+                        <div class="col text-center"><button type="submit"  class="btn btn-outline-primary" onclick="visibility()"> <i class="bi bi-box-arrow-in-down"></i> Write Email</button></div>
+                        <div class="text-center mt-2">
+                            <div class="spinner-border" style="visibility: hidden" id="spinner" role="status">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </form>
+        <!-- {{state}} {{ip}} {{city}} {{country}} {{gps}} {{zip}} {{isp}} -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10 mt-3">
+                        <div class="container overflow-auto">
+                            <div class="row ">
+                            <h6>
+                            
+
+                              <!-- <ul class="list-group" id='nav_1'>
+                                <li class="list-group-item text-center">Raw Information</li>
+                              
+                                <li class="list-group-item list-group-item-primary overflow-auto"> <i class="bi bi-building"></i> {{response}} </li>
+
+                              </ul> -->
+                              <div class="mb-2 mt-2 text-center"> <h4>{{picture}}</h4></div>
+                              <div class="mb-2 mt-2 text-center"> <h4>{{firstName}} {{lastname}}</h4></div>
+                              <div class="mb-2 mt-2 text-center"> {{headline}}</div>
+                              <div class="mb-2 mt-2 text-center "> <h4>Other Info</h4></div>
+                              <textarea class="form-control rounded-0"  id="nav_1"  rows="15" placeholder="All Profile Data">{{formatedProfile}}</textarea>
+                            </h6>
+
+
+                            <div class="mb-2 mt-2 text-center"> <h4>Email for you</h4></div>
+                            <textarea class="form-control rounded-0"  id="myInput"  rows="6" placeholder="Your Generated Email will be hare">{{email_tem}}</textarea>
+                            <div class="col text-center mt-2">
+                                <button class="btn btn-outline-primary" onclick="copyText();"> <i class="bi bi-clipboard"></i> Copy Email</button>
+                            </div>
+
+                            </div>
+                          </div>
+
+                    </div>
+                    
+                    <div class="col-1"></div>
+
+                </div>
+            </div>
+        
+        
+        </header>
+
+
+        <script>
+            function visibility(){
+                      let urlvalue = document.getElementById("exampleFormControlInput1").value;
+                      if(urlvalue !=null){
+                      let spinner = document.getElementById("spinner");
+                      spinner.style.visibility = 'visible'; //'hidden'
+                      }
+                      else{
+      
+                      }
+                  }
+               
+            function copyText() {
+                /* Get the text field */
+                var copyText = document.getElementById("myInput");
+              
+                /* Select the text field */
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); /* For mobile devices */
+              
+                /* Copy the text inside the text field */
+                navigator.clipboard.writeText(copyText.value);
+                
+                /* Alert the copied text */
+               // alert("Copied the text: " + copyText.value);
+              }
+      </script>
+
+        <!-- Footer-->
+        
+        {%include 'footer.html'%}
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <!-- <script src="js/scripts.js"></script> -->
+        <script src="{{url_for('static',filename = 'js/scripts.js')}}"></script>
+    </body>
+
+
+    
+    <style>
+        .alert {
+            margin-bottom: 5px;
+            height: 40px;
+            line-height:40px;
+            padding:0px 15px;
+          }
+
+        
+
+    </style>
+</html>
