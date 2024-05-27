@@ -2,7 +2,7 @@ Need to create something similar to warmer.ai or smartwriter.ai Need to personal
 
 ### Demo Video
 <video width="320" height="240" controls>
-  <source src="https://github.com/sohaibcs1/LinkedIn_AI_EMAil_Writer/blob/main/scraper-demo.webm" type="video/webm">
+  <source src="https://github.com/sohaibcs1/LinkedIn_AI_EMAil_Writer/blob/main/scraper-demo.webm" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
